@@ -9,7 +9,7 @@
 <body class="bg-light">
   <div class="container my-4">
     <h2 class="text-center text-success mb-4">Your Garden Picks from GardenShop!</h2>
-    <p class="text-center text-muted">Scan this QR to grab these essentials on the go.</p>
+    <p class="text-center text-muted">Scan this QR to grab these essentials on the go. Note: You must click 'Add to Cart' on each product page.</p>
     <div class="text-center mb-3">
       <button id="addAllButton" class="btn btn-primary btn-lg">Add All to Cart (Opens Products)</button>
     </div>
@@ -65,7 +65,7 @@
       const status = document.getElementById('status');
       status.classList.remove('d-none');
       status.classList.add('alert-info');
-      status.textContent = 'Attempting to open product pages. If blocked, allow popups and try again. Then set quantity and click "Add to Cart" on each!';
+      status.textContent = 'Attempting to open product pages. If nothing happens, allow popups and try again. Then set quantity and click "Add to Cart" on each page!';
 
       const products = [
         'https://gardenshop.co.za/products/70066954-portulaca-rainbow',
@@ -75,28 +75,28 @@
         'https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r'
       ];
 
-      let opened = 0;
+      let openedCount = 0;
       products.forEach((url) => {
-        const newWindow = window.open(url, '_blank');
-        if (newWindow) opened++;
+        try {
+          const newWindow = window.open(url, '_blank');
+          if (newWindow) openedCount++;
+        } catch (e) {
+          console.error('Failed to open:', url, e);
+        }
       });
 
-      if (opened === products.length) {
-        setTimeout(() => {
-          button.disabled = false;
-          button.textContent = 'Add All to Cart (Opens Products)';
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = 'Add All to Cart (Opens Products)';
+        if (openedCount === products.length) {
           status.classList.add('alert-success');
-          status.textContent = `${opened} product pages opened! Set quantities and add to cart.';
+          status.textContent = `${openedCount} product pages opened! Set quantities and click 'Add to Cart' on each page.`;
           window.open('https://gardenshop.co.za/cart', '_blank');
-        }, 1000);
-      } else {
-        setTimeout(() => {
-          button.disabled = false;
-          button.textContent = 'Add All to Cart (Opens Products)';
+        } else {
           status.classList.add('alert-warning');
-          status.textContent = 'Some popups were blocked. Please allow popups and try again, then add items manually.';
-        }, 1000);
-      }
+          status.textContent = `Only ${openedCount} of ${products.length} pages opened. Allow popups and try again, then add items manually. Check console for details.`;
+        }
+      }, 1000);
     });
   </script>
 </body>
