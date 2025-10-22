@@ -26,101 +26,12 @@
         <tr>
           <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" target="_blank">Portulaca Rainbow</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow?quantity=2" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
+          <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
           <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm" target="_blank">Ophiopogon Japonicus (2L)</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm?quantity=2" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
+          <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
-          <td><a href="https://gardenshop.co.za/products/eco-oslo-dg-19cm" target="_blank">Eco Oslo DG (19cm)</a></td>
-          <td>4</td>
-          <td><a href="https://gardenshop.co.za/products/eco-oslo-dg-19cm?quantity=4" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l" target="_blank">Tulbaghia Violacea (2L)</a></td>
-          <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l?quantity=2" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r" target="_blank">Glass Cylinder Vase (14x10)</a></td>
-          <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r?quantity=2" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <a href="https://gardenshop.co.za/cart" class="btn btn-primary me-2" target="_blank">View Cart on GardenShop</a>
-      <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('Your Your full list here...'); alert('List copied!');">Copy Full List</button>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('addAllButton').addEventListener('click', function() {
-      const button = this;
-      button.disabled = true;
-      button.textContent = 'Opening Products...';
-      const status = document.getElementById('status');
-      status.classList.remove('d-none');
-      status.classList.add('alert-info');
-      status.textContent = 'Opening all product pages with pre-selected quantities. Click "Add to Cart" on each page!';
-      
-      // List of product URLs with quantities
-      const products = [
-        'https://gardenshop.co.za/products/70066954-portulaca-rainbow?quantity=2',
-        'https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm?quantity=2',
-        'https://gardenshop.co.za/products/eco-oslo-dg-19cm?quantity=4',
-        'https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l?quantity=2',
-        'https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r?quantity=2'
-      ];
-      
-      products.forEach((url, index) => {
-        setTimeout(() => {
-          window.open(url, '_blank');
-        }, index * 500);  // Staggered open to avoid popup blocker
-      });
-      
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = 'Add All to Cart (Opens Products for Quick Add)';
-        status.classList.add('alert-success');
-        status.textContent = 'All product pages opened! Add items and check your cart.';
-        window.open('https://gardenshop.co.za/cart', '_blank');
-      }, products.length * 500 + 1000);
-    });
-document.getElementById('addAllButton').addEventListener('click', function() {
-  const button = this;
-  button.disabled = true;
-  button.textContent = 'Opening Products...';
-  const status = document.getElementById('status');
-  status.classList.remove('d-none');
-  status.classList.add('alert-info');
-  status.textContent = 'Opening all product pages. Please click "Add to Cart" on each page with the desired quantity!';
-  
-  // List of correct product URLs (verified by you)
-  const products = [
-    'https://gardenshop.co.za/products/70066954-portulaca-rainbow',
-    'https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm',
-    'https://gardenshop.co.za/products/eco-oslo-dg-19cm',
-    'https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l',
-    'https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r'
-  ];
-  
-  products.forEach((url, index) => {
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, index * 500);  // Staggered open to avoid popup blocker
-  });
-  
-  setTimeout(() => {
-    button.disabled = false;
-    button.textContent = 'Add All to Cart (Opens Products for Quick Add)';
-    status.classList.add('alert-success');
-    status.textContent = 'All product pages opened! Add items and check your cart.';
-    window.open('https://gardenshop.co.za/cart', '_blank');
-  }, products.length * 500 + 1000);
-});
-</body>
-</html>
+          <td><a href="https://gardenshop
