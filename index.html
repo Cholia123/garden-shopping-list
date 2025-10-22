@@ -98,6 +98,44 @@
         }
       }, 1000);
     });
-  </script>
+  document.getElementById('addAllButton').addEventListener('click', function() {
+  const button = this;
+  button.disabled = true;
+  button.textContent = 'Opening Products...';
+  const status = document.getElementById('status');
+  status.classList.remove('d-none');
+  status.classList.add('alert-info');
+  status.textContent = 'Opening all product pages. Set quantities and click "Add to Cart" on each page, then check your cart manually!';
+
+  const products = [
+    'https://gardenshop.co.za/products/70066954-portulaca-rainbow',
+    'https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm',
+    'https://gardenshop.co.za/products/eco-oslo-dg-19cm',
+    'https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l',
+    'https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r'
+  ];
+
+  let openedCount = 0;
+  products.forEach((url) => {
+    try {
+      const newWindow = window.open(url, '_blank');
+      if (newWindow) openedCount++;
+    } catch (e) {
+      console.error('Failed to open:', url, e);
+    }
+  });
+
+  setTimeout(() => {
+    button.disabled = false;
+    button.textContent = 'Add All to Cart (Opens Products)';
+    if (openedCount === products.length) {
+      status.classList.add('alert-success');
+      status.textContent = `${openedCount} product pages opened! Set quantities and click 'Add to Cart' on each page. Check your cart when done.`;
+    } else {
+      status.classList.add('alert-warning');
+      status.textContent = `Only ${openedCount} of ${products.length} pages opened. Allow popups and try again, then add items manually. Check console for details.`;
+    }
+  }, 1000);
+});
 </body>
 </html>
