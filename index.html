@@ -9,9 +9,9 @@
 <body class="bg-light">
   <div class="container my-4">
     <h2 class="text-center text-success mb-4">Your Garden Picks from GardenShop!</h2>
-    <p class="text-center text-muted">Scan this QR to grab these essentials on the go. Note: You must click 'Add to Cart' on each product page.</p>
+    <p class="text-center text-muted">Scan this QR to go directly to checkout with all items pre-added. Proceed to payment if correct!</p>
     <div class="text-center mb-3">
-      <button id="addAllButton" class="btn btn-primary btn-lg">Add All to Cart (Opens Products)</button>
+      <a href="YOUR_CHECKOUT_URL" class="btn btn-primary btn-lg" target="_blank">Go to Checkout with All Items</a>
     </div>
     <div id="status" class="alert d-none" role="alert"></div>
     <table class="table table-striped table-responsive">
@@ -19,84 +19,36 @@
         <tr>
           <th>Item</th>
           <th>Quantity</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" target="_blank">Portulaca Rainbow</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
           <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm" target="_blank">Ophiopogon Japonicus (2L)</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
           <td><a href="https://gardenshop.co.za/products/eco-oslo-dg-19cm" target="_blank">Eco Oslo DG (19cm)</a></td>
           <td>4</td>
-          <td><a href="https://gardenshop.co.za/products/eco-oslo-dg-19cm" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
           <td><a href="https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l" target="_blank">Tulbaghia Violacea (2L)</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
         <tr>
           <td><a href="https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r" target="_blank">Glass Cylinder Vase (14x10)</a></td>
           <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r" class="btn btn-success btn-sm" target="_blank">Add to Cart</a></td>
         </tr>
       </tbody>
     </table>
     <div class="text-center">
-      <a href="https://gardenshop.co.za/cart" class="btn btn-primary me-2" target="_blank">View Cart on GardenShop</a>
       <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('Your full list here...'); alert('List copied!');">Copy Full List</button>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('addAllButton').addEventListener('click', function() {
-      const button = this;
-      button.disabled = true;
-      button.textContent = 'Opening Products...';
-      const status = document.getElementById('status');
-      status.classList.remove('d-none');
-      status.classList.add('alert-info');
-      status.textContent = 'Opening all product pages. Set quantities and click "Add to Cart" on each page, then check your cart manually!';
-
-      const products = [
-        'https://gardenshop.co.za/products/70066954-portulaca-rainbow',
-        'https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm',
-        'https://gardenshop.co.za/products/eco-oslo-dg-19cm',
-        'https://gardenshop.co.za/products/70006617-tulbaghia-violacea-2l',
-        'https://gardenshop.co.za/products/hs-vase-glass-cylinder-on-base-14x10?_pos=6&_sid=27467db44&_ss=r'
-      ];
-
-      let openedCount = 0;
-      products.forEach((url) => {
-        try {
-          const newWindow = window.open(url, '_blank');
-          if (newWindow) openedCount++;
-        } catch (e) {
-          console.error('Failed to open:', url, e);
-        }
-      });
-
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = 'Add All to Cart (Opens Products)';
-        if (openedCount === products.length) {
-          status.classList.add('alert-success');
-          status.textContent = `${openedCount} product pages opened! Set quantities and click 'Add to Cart' on each page. Check your cart when done.`;
-        } else {
-          status.classList.add('alert-warning');
-          status.textContent = `Only ${openedCount} of ${products.length} pages opened. Allow popups and try again, then add items manually. Check console for details.`;
-        }
-      }, 1000);
-    });
-  </script>
 </body>
 </html>
