@@ -9,12 +9,33 @@
     body {
       background-color: #C8E6C9; /* Softer vibrant light green */
       color: #388E3C; /* Medium green for body text */
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .centered-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header-img {
+      max-width: 80%; /* Adjust size as needed */
+      height: auto;
+      border-radius: 5px;
+    }
+    .content {
+      text-align: center;
+      width: 100%;
+      padding: 20px;
     }
     .container {
       background-color: #FFFFFF; /* White container */
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 80%; /* Responsive width */
     }
     h2 {
       color: #1B5E20; /* Deep forest green for headings */
@@ -28,62 +49,4 @@
     }
     .btn-primary:hover {
       background-color: #4CAF50; /* Vibrant emerald green on hover */
-      border-color: #4CAF50;
-    }
-    .btn-success {
-      background-color: #66BB6A; /* Bright green for "Add Item to Cart" */
-      border-color: #66BB6A;
-    }
-    .btn-success:hover {
-      background-color: #4CAF50; /* Vibrant emerald green on hover */
-      border-color: #4CAF50;
-    }
-    .btn-share {
-      background-color: #4CAF50; /* Vibrant emerald green for "Share This Link" */
-      border-color: #4CAF50;
-    }
-    .btn-share:hover {
-      background-color: #388E3C; /* Medium green on hover */
-      border-color: #388E3C;
-    }
-    .table-custom th, .table-custom td {
-      vertical-align: middle;
-    }
-    .btn-custom {
-      margin-right: 5px;
-    }
-    .header-img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container my-4">
-    <h2 class="text-center mb-4">ISM Spring 2025 Best Seller!</h2>
-    <img src="https://i.ibb.co/zT7FF3vR/image-name.jpg" alt="Page Banner" class="header-img img-fluid">
-    <p class="text-center text-muted">This is our exclusive composition created for special occasion - ISM university, GardenShop and 9Yards collaborated effort for improving sales.</p>
-    <p class="text-center text-muted my-4">This vibrant arrangement blends colorful flowers with elegant Glass Cylinder Vases. Perfect for a modern garden or patio, it evokes a fresh, lively feel with low maintenance, ideal for spring blooms and special events.</p>
-    <div class="text-center mb-3">
-      <a href="https://gardenshop.co.za/checkouts/cn/hWN4Q1vQidyKUYOh7Fmvv3GF/en-za" class="btn btn-primary btn-lg" target="_blank">Go to Checkout with All Items</a>
-    </div>
-    <table class="table table-striped table-responsive table-custom">
-      <thead class="table-dark">
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" target="_blank">Portulaca Rainbow</a></td>
-          <td>2</td>
-          <td><a href="https://gardenshop.co.za/products/70066954-portulaca-rainbow" class="btn btn-success btn-sm btn-custom" target="_blank">Add Item to Cart</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://gardenshop.co.za/products/10072607-ophiopogon-japonicus-2l-25cm-x-30cm" target="_blank">Ophiopogon Japonicus (2L)</a></td>
-          <td>2</td>
-          <td><a href="https
+      border-color:
